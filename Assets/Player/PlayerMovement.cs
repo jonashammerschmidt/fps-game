@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     //Assingables
-    public Transform playerCam;
+    public Transform head;
     public Transform orientation;
 
     //Other
@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
         //Find current look rotation
-        Vector3 rot = playerCam.transform.localRotation.eulerAngles;
+        Vector3 rot = head.transform.localRotation.eulerAngles;
         desiredX = rot.y + mouseX;
 
         //Rotate, and also make sure we dont over- or under-rotate.
@@ -195,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         //Perform the rotations
-        playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
+        head.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
         orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
     }
 
