@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
     //Rotation and look
+    public float sensitivity = 1.5f;
     private float xRotation;
-    private float sensitivity = 50f;
     private float sensMultiplier = 1f;
 
     //Movement
@@ -183,8 +183,8 @@ public class PlayerMovement : MonoBehaviour
     private float desiredX;
     private void Look()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * 10f * Time.fixedDeltaTime * sensMultiplier;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * 10f * Time.fixedDeltaTime * sensMultiplier;
 
         //Find current look rotation
         Vector3 rot = head.transform.localRotation.eulerAngles;
