@@ -2,6 +2,9 @@
 
 public class WeaponSway : MonoBehaviour
 {
+
+    public Rigidbody playerRigidbody;
+
     public float amount = 0.1f;
     public float maxAmount = 0.3f;
     public float smoothAmount = 6.0f;
@@ -16,7 +19,7 @@ public class WeaponSway : MonoBehaviour
     void Update()
     {
         float moveX = -Input.GetAxis("Mouse X") * amount;
-        float moveY = -Input.GetAxis("Mouse Y") * amount;
+        float moveY = (-Input.GetAxis("Mouse Y") - playerRigidbody.velocity.y / 5) * amount;
         moveX = Mathf.Clamp(moveX, -maxAmount, maxAmount);
         moveY = Mathf.Clamp(moveY, -maxAmount, maxAmount);
 
