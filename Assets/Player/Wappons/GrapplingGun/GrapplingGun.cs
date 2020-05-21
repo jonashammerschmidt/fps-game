@@ -96,4 +96,8 @@ public class GrapplingGun : MonoBehaviour
 
         tipInGun.SetActive(true);
     }
+
+    void OnDestroy() {
+        MouseUp();
+    }
 }
