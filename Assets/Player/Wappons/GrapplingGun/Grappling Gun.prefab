@@ -53,7 +53,7 @@ MonoBehaviour:
   linePrefab: {fileID: 5762733921839064629, guid: b2dfe2c9b5249484cbb3ecdd6eb2c806,
     type: 3}
   cameraTransform: {fileID: 0}
-  gunPullForce: 20
+  gunPullForce: 120
   breakingDistance: 2
 --- !u!1 &1999435859826259259
 GameObject:

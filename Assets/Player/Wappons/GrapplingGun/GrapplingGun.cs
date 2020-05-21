@@ -41,16 +41,15 @@ public class GrapplingGun : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        if (mouseDown && lineRenderer != null) {
-            if ((backTipPosition - tipInGun.transform.position).magnitude < breakingDistance) {
+        if (mouseDown && lineRenderer != null)
+        {
+            if ((backTipPosition - tipInGun.transform.position).magnitude < breakingDistance)
+            {
                 MouseUp();
                 return;
             }
-
-            lineRenderer.SetPosition(0, tipInGun.transform.position);
-
             var forceDirection = (backTipPosition - tipInGun.transform.position);
             if (forceDirection.y > 0)
             {
@@ -61,6 +60,14 @@ public class GrapplingGun : MonoBehaviour
             {
                 playerRigidbody.AddForce(forceDirection.normalized * gunPullForce);
             }
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (mouseDown && lineRenderer != null)
+        {
+            lineRenderer.SetPosition(0, tipInGun.transform.position);
         }
     }
 
@@ -97,7 +104,8 @@ public class GrapplingGun : MonoBehaviour
         tipInGun.SetActive(true);
     }
 
-    void OnDestroy() {
+    void OnDestroy()
+    {
         MouseUp();
     }
 }
